@@ -1,0 +1,24 @@
+package database
+
+import (
+	"api/src/domain"
+)
+
+type UserRepository struct {
+	SqlHandler
+}
+
+func (db *UserRepository) Store(u domain.User) {
+	db.Create(&u)
+}
+
+func (db *UserRepository) select() []domain.User {
+	user := []domain.User{}
+	db.FindAll(&user)
+	return user
+}
+
+func (db *UserRepository) Delete(id string) {
+	user := []domain.User{}
+	db.DeleteById(&user, id)
+}
