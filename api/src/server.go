@@ -1,7 +1,7 @@
 package main 
 
 import (
-	"github.com/ryuseifujisaki/Gomysql/api/src/domain"
+	//"github.com/ryuseifujisaki/Gomysql/api/src/domain"
 	"github.com/ryuseifujisaki/Gomysql/api/src/infrastructure"
 
 	"github.com/labstack/echo/v4"
@@ -12,7 +12,7 @@ import (
 var (
 	db *gorm.DB
 	err error
-	dsn := "root:password@tcp(127.0.0.1:3306)/gomysql?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn = "gomysql:password@tcp(gomysql-db:3306)/gomysql?charset=utf8mb4&parseTime=True&loc=Local"
 )
 
 func main() {
@@ -23,8 +23,8 @@ func main() {
 }
 
 func dbinit() {
-	db, err = gorm.Open(mysql.Open(dsn), &gorm.config{})
+	db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 	}
-	db.Migrator().CreateTable(domain.User{})
+	//db.Migrator().CreateTable(domain.User{})
 }

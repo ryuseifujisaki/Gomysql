@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"api/src/domain"
-	"api/src/interfaces/database"
-	"api/src/usecase"
+	"github.com/ryuseifujisaki/Gomysql/api/src/domain"
+	"github.com/ryuseifujisaki/Gomysql/api/src/interfaces/database"
+	"github.com/ryuseifujisaki/Gomysql/api/src/usecase"
 
 	"github.com/labstack/echo"
 )
@@ -14,18 +14,18 @@ type UserController struct {
 
 func NewUserController(sqlHandler database.SqlHandler) *UserController {
 	return &UserController{
-		Interactor: usecase.UserInteractor{
-			UserRepository: &database.UserRepository{
-				SqlHandler : sqlHandler,
+			Interactor: usecase.UserInteractor{
+					UserRepository: &database.UserRepository{
+							SqlHandler: sqlHandler,
+					},
 			},
-		},
 	}
 }
 
 func (controller *UserController) Create(c echo.Context) {
 	u := domain.User{}
 	c.Bind(&u)
-	controller,Interactor.Add(u)
+	controller.Interactor.Add(u)
 	createdUsers := controller.Interactor.GetInfo()
 	c.JSON(201, createdUsers)
 	return
