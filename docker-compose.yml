@@ -21,7 +21,7 @@ services:
     container_name: "gomysql-api"
     volumes:
       - ./api:/app
-    command: go run cmd/main.go
+    command: go run src/server.go
     ports:
     - "1323:1323"
     stdin_open: true

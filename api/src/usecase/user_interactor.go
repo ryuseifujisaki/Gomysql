@@ -1,6 +1,6 @@
 package usecase
 
-import "api/src/domain"
+import "github.com/ryuseifujisaki/Gomysql/api/src/domain"
 
 type UserInteractor struct {
 	UserRepository UserRepository

@@ -1,7 +1,7 @@
 package infrastructure 
 
 import (
-	controllers "api/src/interfaces/api"
+	controllers "github.com/ryuseifujisaki/Gomysql/api/src/interfaces/api"
 	"net/http"
 
 	"github.com/labstack/echo"
@@ -17,12 +17,12 @@ func Init() {
 		return c.JSON(http.StatusOK, users)
 	})
 
-	e.GET("/users", func(c echo.Context) error {
+	e.POST("/users", func(c echo.Context) error {
 		userController.Create(c)
-		return c.string(http.StatusOK, "Create")
+		return c.String(http.StatusOK, "Create")
 	})
 
-	e.Delete("/users/:id", func(c echo.Context) error {
+	e.DELETE("/users/:id", func(c echo.Context) error {
 		id := c.Param("id")
 		userController.Delete(id)
 		return c.String(http.StatusOK, "Deleted")

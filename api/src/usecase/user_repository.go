@@ -1,7 +1,7 @@
 package usecase
 
 import (
-	"api/src/domain"
+	"github.com/ryuseifujisaki/Gomysql/api/src/domain"
 )
 
 type UserRepository interface {
