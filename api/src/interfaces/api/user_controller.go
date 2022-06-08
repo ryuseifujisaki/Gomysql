@@ -4,6 +4,7 @@ import (
 	"github.com/ryuseifujisaki/Gomysql/api/src/domain"
 	"github.com/ryuseifujisaki/Gomysql/api/src/interfaces/database"
 	"github.com/ryuseifujisaki/Gomysql/api/src/usecase"
+	"fmt"
 
 	"github.com/labstack/echo"
 )
@@ -22,8 +23,9 @@ func NewUserController(sqlHandler database.SqlHandler) *UserController {
 	}
 }
 
-func (controller *UserController) Create(c echo.Context) {
-	u := domain.User{}
+func (controller *UserController) Create(c echo.Context, name string) {
+	u := domain.User{Name: name}
+	fmt.Println(u)
 	c.Bind(&u)
 	controller.Interactor.Add(u)
 	createdUsers := controller.Interactor.GetInfo()

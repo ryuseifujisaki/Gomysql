@@ -3,6 +3,7 @@ package infrastructure
 import (
 	controllers "github.com/ryuseifujisaki/Gomysql/api/src/interfaces/api"
 	"net/http"
+	"fmt"
 
 	"github.com/labstack/echo"
 )
@@ -18,7 +19,9 @@ func Init() {
 	})
 
 	e.POST("/users", func(c echo.Context) error {
-		userController.Create(c)
+		name := c.QueryParam("name")
+		fmt.Println(name)
+		userController.Create(c, name)
 		return c.String(http.StatusOK, "Create")
 	})
 

@@ -2,6 +2,7 @@ package database
 
 import (
     "github.com/ryuseifujisaki/Gomysql/api/src/domain"
+    "fmt"
 )
 
 type UserRepository struct {
@@ -9,6 +10,7 @@ type UserRepository struct {
 }
 
 func (db *UserRepository) Store(u domain.User) {
+    fmt.Println(&u)
     db.Create(&u)
 }
 

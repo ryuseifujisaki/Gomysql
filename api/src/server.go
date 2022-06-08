@@ -5,8 +5,10 @@ import (
 	"github.com/ryuseifujisaki/Gomysql/api/src/infrastructure"
 
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
   "gorm.io/driver/mysql"
   "gorm.io/gorm"
+	"net/http"
 )
 
 var (
@@ -19,6 +21,12 @@ func main() {
 	dbinit()
 	infrastructure.Init()
 	e := echo.New()
+
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{"*"},
+		AllowMethods:    []string{http.MethodGet, http.MethodPut, http.MethodPost, http.MethodDelete},
+	}))
+
 	e.Logger.Fatal(e.Start(":1323"))
 }
 
