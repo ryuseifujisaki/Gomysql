@@ -6,6 +6,4 @@ type User struct {
     Age int `json:"age" gorm:""`
 }
 
-fmt.Println(veo)
-
 
