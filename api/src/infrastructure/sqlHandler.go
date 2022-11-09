@@ -37,4 +37,5 @@ func (handler *SqlHandler) DeleteById(obj interface{}, id string){
 func(){
 	sachansa
 	// oramge
+	//socer
 }
