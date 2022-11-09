@@ -35,5 +35,5 @@ func (handler *SqlHandler) DeleteById(obj interface{}, id string){
 }
 
 func(){
-	sachan
+	sachansa
 }
