@@ -33,3 +33,9 @@ func (handler *SqlHandler) FindAll(obj interface{}){
 func (handler *SqlHandler) DeleteById(obj interface{}, id string){
 	handler.db.Delete(obj, id)
 }
+
+func() sd{
+	sachansa
+	// oramge
+	//socer
+}
