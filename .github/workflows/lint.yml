@@ -3,7 +3,6 @@ name: Reviewdog
 on:
   pull_request:
     types: [opened, synchronize]
-    paths: 'api/*.go'
 
 jobs:
   golangci-lint:
