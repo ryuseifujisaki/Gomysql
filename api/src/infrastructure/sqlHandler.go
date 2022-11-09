@@ -34,7 +34,7 @@ func (handler *SqlHandler) DeleteById(obj interface{}, id string){
 	handler.db.Delete(obj, id)
 }
 
-func(){
+func() sd{
 	sachansa
 	// oramge
 	//socer
