@@ -19,7 +19,7 @@ jobs:
           # Can pass --config flag to change golangci-lint behavior and target
           # directory.
           golangci_lint_flags: "--config=.github/.golangci.yml ./testdata"
-          workdir: subdirectory/
+          workdir: api/
 
   # Use golint via golangci-lint binary with "warning" level.
   golint:
@@ -51,7 +51,7 @@ jobs:
 
   # Disable cache of golangci-lint result, go build and go dependencies
   with_cache:
-    name: runner / errcheck
+    name: runner / cachecheck
     runs-on: ubuntu-latest
     steps:
       - name: Check out code into the Go module directory
