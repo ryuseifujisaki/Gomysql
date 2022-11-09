@@ -1,12 +1,23 @@
-name: reviewdog
-on: [pull_request]
+name: Reviewdog
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths: 'api/*.go'
+
 jobs:
-  staticcheck:
-    name: runner / staticcheck
+  golangci-lint:
+    name: golangci-lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: reviewdog/action-staticcheck@v1
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v3
         with:
-          filter_mode: diff_context
-          fail_on_error: true
+          fetch-depth: 0
+      - name: golangci-lint
+        uses: reviewdog/action-golangci-lint@v2
+        with:
+          github_token: ${{ github.token }}
+          level: warning
+          golangci_lint_flags: "--config=.golangci.yml"
+          reporter: github-pr-review
