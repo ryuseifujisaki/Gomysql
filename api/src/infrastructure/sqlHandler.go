@@ -37,4 +37,5 @@ func (handler *SqlHandler) DeleteByID(obj interface{}, id string) {
 	 fmt.Println( "asas" )
 	 fmt.Println( "asas" )
 	 fmt.Println( "asas" )
+	 fmt.Println( "asas" )
 }
