@@ -1,16 +1,21 @@
 name: reviewdog
 on: [pull_request]
 jobs:
-  reviewdog:
-    name: reviewdog
+  golangci-lint:
+    name: runner / golangci-lint
     runs-on: ubuntu-latest
     steps:
-      # ...
-      - uses: reviewdog/action-setup@v1
+      - name: git config to get private repositories
+        run: git config --global url.'https://${{ secrets.REVIEWDOG_TOKEN }}:x-oauth-basic@github.com/sambaiz'.insteadOf 'https://github.com/sambaiz'
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v2
+      - name: Set up Go
+        uses: actions/setup-go@v2
         with:
-          reviewdog_version: latest # Optional. [latest,nightly,v.X.Y.Z]
-      - name: Run reviewdog
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          reviewdog -reporter=github-pr-check -runners=golint,govet
+          go-version: '1.16'
+      - name: golangci-lint
+        uses: reviewdog/action-golangci-lint@v1
+        with:
+          reporter: github-pr-review
+          filter_mode: diff_context
+          fail_on_error: true
