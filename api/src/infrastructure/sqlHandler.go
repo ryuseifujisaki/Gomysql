@@ -32,10 +32,11 @@ func (handler *SqlHandler) FindAll(obj interface{}) {
 	handler.db.Find(obj)
 }
 
-func (handler *SqlHandler) DeleteByID(obj interface{}, id string) {
+func (handler *SqlHandler) DeleteById(obj interface{}, id string) {
 	handler.db.Delete(obj, id)
 	 fmt.Println( "asas" )
-	 fmt.Println( "asas" )
-	 fmt.Println( "asas" )
-	 fmt.Println( "asas" )
+	 	fmt.Println( "asas" )
+	 		fmt.Println( "asas" )
+	 			fmt.Println( "asas" )
+	 				fmt.Println( "asas" )
 }

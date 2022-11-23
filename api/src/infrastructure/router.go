@@ -14,7 +14,9 @@ func Init() {
 
 	e.GET("/users", func(c echo.Context) error {
 		users := userController.GetUser()
-		c.Bind(&users)
+
+		c.Bind(&users )
+
 		return c.JSON(http.StatusOK, users)
 	})
 
@@ -29,6 +31,7 @@ func Init() {
 		id := c.Param("id")
 		userController.Delete(id)
 		return c.String(http.StatusOK, "Deleted")
+		
 	})
 
 	e.Logger.Fatal(e.Start(":1323"))
