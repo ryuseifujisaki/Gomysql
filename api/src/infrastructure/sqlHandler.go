@@ -40,3 +40,4 @@ func (handler *SqlHandler) DeleteById(obj interface{}, id string) {
 	fmt.Println("asas")
 	fmt.Println("asas")
 }
+// colour #f8f8f2
