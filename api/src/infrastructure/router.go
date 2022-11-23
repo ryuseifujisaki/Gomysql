@@ -31,7 +31,7 @@ func Init() {
 		id := c.Param("id")
 		userController.Delete(id)
 		return c.String(http.StatusOK, "Deleted")
-		
+
 	})
 
 	e.Logger.Fatal(e.Start(":1323"))
