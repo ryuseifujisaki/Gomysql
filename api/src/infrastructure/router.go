@@ -16,6 +16,7 @@ func Init() {
 		users := userController.GetUser()
 
 		c.Bind(&users )
+		c.Bind(&users )
 
 		return c.JSON(http.StatusOK, users)
 	})
