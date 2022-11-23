@@ -35,9 +35,9 @@ func (handler *SqlHandler) FindAll(obj interface{}) {
 func (handler *SqlHandler) DeleteById(obj interface{}, id string) {
 	handler.db.Delete(obj, id)
 	fmt.Println("asas")
-	fmt.Println("asas" )
+	fmt.Println("asas"  )
 	fmt.Println("asas")
 	fmt.Println("asas")
 	fmt.Println("asas")
 }
-// colour
+//  colour
