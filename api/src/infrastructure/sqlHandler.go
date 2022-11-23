@@ -4,9 +4,9 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 
-	
-	"github.com/ryuseifujisaki/Gomysql/api/src/interfaces/database"
 	"fmt"
+
+	"github.com/ryuseifujisaki/Gomysql/api/src/interfaces/database"
 )
 
 type SqlHandler struct {
@@ -34,9 +34,9 @@ func (handler *SqlHandler) FindAll(obj interface{}) {
 
 func (handler *SqlHandler) DeleteById(obj interface{}, id string) {
 	handler.db.Delete(obj, id)
-	 fmt.Println( "asas" )
-	 	fmt.Println( "asas" )
-	 		fmt.Println( "asas" )
-	 			fmt.Println( "asas" )
-	 				fmt.Println( "asas" )
+	fmt.Println("asas")
+	fmt.Println("asas")
+	fmt.Println("asas")
+	fmt.Println("asas")
+	fmt.Println("asas")
 }
