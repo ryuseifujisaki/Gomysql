@@ -15,7 +15,7 @@ func Init() {
 	e.GET("/users", func(c echo.Context) error {
 		users := userController.GetUser()
 
-		c.Bind( 　　&users )
+		c.Bind( 　　  &users )
 
 		return c.JSON(http.StatusOK, users)
 	})
