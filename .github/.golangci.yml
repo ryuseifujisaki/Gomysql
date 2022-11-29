@@ -1,4 +1,2 @@
-linters-settings:
-  gocyclo:
-    # min-complexity: 10
-    min-complexity: 1
+issues:
+  exclude-use-default: false
