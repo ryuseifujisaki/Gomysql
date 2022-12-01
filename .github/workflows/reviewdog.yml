@@ -14,7 +14,8 @@ jobs:
         uses: reviewdog/action-golangci-lint@v1
         with:
           github_token: ${{ github.token }}
-          level: warning
+          level: info
           golangci_lint_flags: "--config=.golangci.yml"
           filter_mode: diff_context
           reporter: github-pr-review
+          fail_on_error: true
