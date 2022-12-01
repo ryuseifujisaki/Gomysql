@@ -28,3 +28,4 @@ jobs:
           golangci_lint_flags: "--config=.golangci.yml"
           filter_mode: diff_context
           reporter: github-pr-review
+          fail_on_error: true
