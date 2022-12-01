@@ -18,6 +18,7 @@ func Init() {
 
 		c.Bind(　&users　)
 		c.Bind( 　　     　  &users   　　 )
+		c.Bind( 　　     　  &users   　　 )
 
 		return c.JSON(http.StatusOK, users)
 	})
