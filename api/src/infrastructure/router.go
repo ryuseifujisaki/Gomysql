@@ -1,9 +1,10 @@
-package infrastructure 
+package infrastructure
 
 import (
-	controllers "github.com/ryuseifujisaki/Gomysql/api/src/interfaces/api"
-	"net/http"
 	"fmt"
+	"net/http"
+
+	controllers "github.com/ryuseifujisaki/Gomysql/api/src/interfaces/api"
 
 	"github.com/labstack/echo"
 )
@@ -15,6 +16,7 @@ func Init() {
 	e.GET("/users", func(c echo.Context) error {
 		users := userController.GetUser()
 
+		c.Bind(　&users　)
 		c.Bind( 　　     　  &users   　　 )
 
 		return c.JSON(http.StatusOK, users)
